@@ -9,13 +9,13 @@ const port = process.env.PORT || 5432;
 app.use(express.json());
 app.use(express.Router());
 
-app.get('/', (req, res) => res.send('<h1 style="text-align:center">Welcome to Employee Registration Portal</h1>'));
+app.get('/', (req, res) => res.send('<h1 style="text-align:center">Welcome to Student Registration Portal</h1>'));
 
-const departmentRoutes = require('./routes/Department');
-app.use('/department', departmentRoutes);
+const collegeroutes = require('./routes/college');
+app.use('/college', collegeroutes);
 
-const employeeRoutes = require('./routes/Employee');
-app.use('/employee', employeeRoutes);
+const studentroutes = require('./routes/student');
+app.use('/student', studentroutes);
 
 mongoose
     .connect(process.env.MONGOURL)
